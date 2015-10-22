@@ -32,7 +32,7 @@
 	self.arrayItems = [NSMutableArray array];
 	for (int i=0; i<10; i++)
 	{
-		NSString *str = [NSString stringWithFormat:@"Секция %i", i];
+		NSString *str = [NSString stringWithFormat:@"Section %i", i];
 		[self.arrayItems addObject:str];
 	}
 }
@@ -87,7 +87,7 @@
 	}
 	self.buttonRemoveSection.enabled = YES;
 	[self.table beginUpdates];
-	NSString *str = [NSString stringWithFormat:@"Секция %lu", index];
+	NSString *str = [NSString stringWithFormat:@"Section %lu", index];
 	[self.arrayItems addObject:str];
 	NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:index];
 	[self.table insertSections:indexSet withRowAnimation:self.typeAnimation];
@@ -129,10 +129,8 @@
 		self.typeAnimation = UITableViewRowAnimationAutomatic;
 		[self.buttonChangeAnimation setTitle:@"Automatic" forState:UIControlStateNormal];
 	}]];
-	[alertController addAction:[UIAlertAction actionWithTitle:@"Отмена" style:UIAlertActionStyleCancel handler:nil]];
+	[alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
 	[self presentViewController:alertController animated:YES completion:nil];
-	
-	
 }
 
 @end
