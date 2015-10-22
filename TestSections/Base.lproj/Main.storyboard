@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TYz-HS-QH3">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="530"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.84552556818181812" green="0.84552556818181812" blue="0.84552556818181812" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="AV4-nh-f4t">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AV4-nh-f4t" id="Qj8-yN-Cqi">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                            <color key="backgroundColor" red="0.80328262789564608" green="1" blue="0.94699833091250352" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="LB4-9p-Aso"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="vCa-rk-HW7"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dO-MW-jIa">
+                                <rect key="frame" x="20" y="550" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addSection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6hW-QM-2ne"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyh-aW-R1c">
+                                <rect key="frame" x="525" y="550" width="55" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Remove"/>
+                                <connections>
+                                    <action selector="removeSection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e6f-nW-LTI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4Q-W6-qQu">
+                                <rect key="frame" x="283" y="550" width="34" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Fade"/>
+                                <connections>
+                                    <action selector="changeAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Fa-uc-p9v"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TYz-HS-QH3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4sn-r2-jFd"/>
+                            <constraint firstAttribute="trailing" secondItem="Yyh-aW-R1c" secondAttribute="trailing" constant="20" id="BcE-Ai-fkM"/>
+                            <constraint firstItem="TYz-HS-QH3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Pae-bL-Wn5"/>
+                            <constraint firstAttribute="trailing" secondItem="TYz-HS-QH3" secondAttribute="trailing" id="SvC-oa-u9X"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1dO-MW-jIa" secondAttribute="bottom" constant="20" id="TfY-ab-dHE"/>
+                            <constraint firstItem="Q4Q-W6-qQu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cTb-XR-wzQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Yyh-aW-R1c" secondAttribute="bottom" constant="20" id="csj-y6-YRv"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Q4Q-W6-qQu" secondAttribute="bottom" constant="20" id="fvN-MC-v4i"/>
+                            <constraint firstItem="Yyh-aW-R1c" firstAttribute="top" secondItem="TYz-HS-QH3" secondAttribute="bottom" constant="20" id="oDu-JH-rt2"/>
+                            <constraint firstItem="1dO-MW-jIa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="rnW-Is-cKp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonAddSection" destination="1dO-MW-jIa" id="OIe-tk-tei"/>
+                        <outlet property="buttonChangeAnimation" destination="Q4Q-W6-qQu" id="av2-dv-REY"/>
+                        <outlet property="buttonRemoveSection" destination="Yyh-aW-R1c" id="9y7-T0-dqt"/>
+                        <outlet property="table" destination="TYz-HS-QH3" id="29v-qc-ce6"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="163" y="-93"/>
+        </scene>
+    </scenes>
+</document>
