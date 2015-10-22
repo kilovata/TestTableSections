@@ -16,6 +16,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonRemoveSection;
 @property (weak, nonatomic) IBOutlet UIButton *buttonChangeAnimation;
 @property (assign, nonatomic) UITableViewRowAnimation typeAnimation;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintViewBottomHeight;
+@property (assign, nonatomic) NSInteger newSection;
+@property (assign, nonatomic) BOOL isAddItem;
+@property (assign, nonatomic) CGPoint pointStopScroll;
 
 - (IBAction)addSection:(id)sender;
 - (IBAction)removeSection:(id)sender;
@@ -28,6 +32,9 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+	
+	self.newSection = 0;
+	self.isAddItem = NO;
 	
 	self.arrayItems = [NSMutableArray array];
 	for (int i=0; i<10; i++)
@@ -80,18 +87,26 @@
 
 - (IBAction)addSection:(id)sender
 {
-	NSInteger index = 1;
+	self.isAddItem = YES;
+	NSInteger index = 0;
 	if (self.arrayItems.count == 0)
 	{
 		index = 0;
 	}
 	self.buttonRemoveSection.enabled = YES;
 	[self.table beginUpdates];
-	NSString *str = [NSString stringWithFormat:@"Section %lu", index];
-	[self.arrayItems addObject:str];
+	[UIView setAnimationsEnabled:NO];
+	self.newSection = self.arrayItems.count + 1;
+	NSString *str = [NSString stringWithFormat:@"New section %lu", self.newSection];
+	[self.arrayItems insertObject:str atIndex:index];
 	NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:index];
 	[self.table insertSections:indexSet withRowAnimation:self.typeAnimation];
 	[self.table endUpdates];
+	
+	self.pointStopScroll = CGPointMake(0, self.pointStopScroll.y + 44.f);
+	[self.table setContentOffset:self.pointStopScroll];
+	
+	[UIView setAnimationsEnabled:YES];
 }
 
 - (IBAction)changeAnimation:(id)sender
@@ -131,6 +146,15 @@
 	}]];
 	[alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
 	[self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+	if (self.isAddItem && scrollView.contentOffset.y != self.pointStopScroll.y)
+	{
+		[self.table setContentOffset:self.pointStopScroll];
+		self.isAddItem = NO;
+	}
 }
 
 @end

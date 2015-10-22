@@ -7,11 +7,10 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="aVb-VJ-zUg"/>
+                        <viewControllerLayoutGuide type="bottom" id="h4Z-aF-IQf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -42,56 +41,74 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="vCa-rk-HW7"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dO-MW-jIa">
-                                <rect key="frame" x="20" y="550" width="30" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrc-xs-bms" userLabel="View Bottom">
+                                <rect key="frame" x="0.0" y="530" width="600" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dO-MW-jIa">
+                                        <rect key="frame" x="20" y="20" width="30" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="addSection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6hW-QM-2ne"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyh-aW-R1c">
+                                        <rect key="frame" x="525" y="20" width="55" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Remove"/>
+                                        <connections>
+                                            <action selector="removeSection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e6f-nW-LTI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4Q-W6-qQu">
+                                        <rect key="frame" x="283" y="20" width="34" height="30"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Fade"/>
+                                        <connections>
+                                            <action selector="changeAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Fa-uc-p9v"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <animations/>
-                                <state key="normal" title="Add"/>
-                                <connections>
-                                    <action selector="addSection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6hW-QM-2ne"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyh-aW-R1c">
-                                <rect key="frame" x="525" y="550" width="55" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Remove"/>
-                                <connections>
-                                    <action selector="removeSection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e6f-nW-LTI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4Q-W6-qQu">
-                                <rect key="frame" x="283" y="550" width="34" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Fade"/>
-                                <connections>
-                                    <action selector="changeAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Fa-uc-p9v"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" red="1" green="0.78831420490000004" blue="0.9082309449" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Q4Q-W6-qQu" secondAttribute="bottom" constant="20" id="0Of-hx-HFU"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yyh-aW-R1c" secondAttribute="trailing" constant="20" id="BkM-JD-OUX"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yyh-aW-R1c" secondAttribute="bottom" constant="20" id="RhR-Bf-Wy8"/>
+                                    <constraint firstAttribute="height" constant="70" id="cnW-6c-RPP"/>
+                                    <constraint firstItem="1dO-MW-jIa" firstAttribute="top" secondItem="Zrc-xs-bms" secondAttribute="top" constant="20" id="fOB-Cc-xdO"/>
+                                    <constraint firstAttribute="bottom" secondItem="1dO-MW-jIa" secondAttribute="bottom" constant="20" id="no8-lw-dEu"/>
+                                    <constraint firstItem="Q4Q-W6-qQu" firstAttribute="top" secondItem="Zrc-xs-bms" secondAttribute="top" constant="20" id="twk-bT-ui1"/>
+                                    <constraint firstItem="Q4Q-W6-qQu" firstAttribute="centerX" secondItem="Zrc-xs-bms" secondAttribute="centerX" id="u3d-9u-2tk"/>
+                                    <constraint firstItem="Yyh-aW-R1c" firstAttribute="top" secondItem="Zrc-xs-bms" secondAttribute="top" constant="20" id="x37-tf-ISL"/>
+                                    <constraint firstItem="1dO-MW-jIa" firstAttribute="leading" secondItem="Zrc-xs-bms" secondAttribute="leading" constant="20" id="xch-Xf-lkW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TYz-HS-QH3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4sn-r2-jFd"/>
-                            <constraint firstAttribute="trailing" secondItem="Yyh-aW-R1c" secondAttribute="trailing" constant="20" id="BcE-Ai-fkM"/>
-                            <constraint firstItem="TYz-HS-QH3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Pae-bL-Wn5"/>
-                            <constraint firstAttribute="trailing" secondItem="TYz-HS-QH3" secondAttribute="trailing" id="SvC-oa-u9X"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1dO-MW-jIa" secondAttribute="bottom" constant="20" id="TfY-ab-dHE"/>
-                            <constraint firstItem="Q4Q-W6-qQu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cTb-XR-wzQ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Yyh-aW-R1c" secondAttribute="bottom" constant="20" id="csj-y6-YRv"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Q4Q-W6-qQu" secondAttribute="bottom" constant="20" id="fvN-MC-v4i"/>
-                            <constraint firstItem="Yyh-aW-R1c" firstAttribute="top" secondItem="TYz-HS-QH3" secondAttribute="bottom" constant="20" id="oDu-JH-rt2"/>
-                            <constraint firstItem="1dO-MW-jIa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="rnW-Is-cKp"/>
+                            <constraint firstItem="Zrc-xs-bms" firstAttribute="top" secondItem="TYz-HS-QH3" secondAttribute="bottom" id="7vL-0a-Yaf"/>
+                            <constraint firstItem="Zrc-xs-bms" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HIR-Ys-bds"/>
+                            <constraint firstItem="TYz-HS-QH3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="JSD-So-kxu"/>
+                            <constraint firstAttribute="trailing" secondItem="Zrc-xs-bms" secondAttribute="trailing" id="R7n-Zw-llF"/>
+                            <constraint firstItem="h4Z-aF-IQf" firstAttribute="top" secondItem="Zrc-xs-bms" secondAttribute="bottom" id="Rld-9G-okC"/>
+                            <constraint firstAttribute="trailing" secondItem="TYz-HS-QH3" secondAttribute="trailing" id="uNh-0g-EZT"/>
+                            <constraint firstItem="TYz-HS-QH3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vvN-1B-TsX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="buttonAddSection" destination="1dO-MW-jIa" id="OIe-tk-tei"/>
                         <outlet property="buttonChangeAnimation" destination="Q4Q-W6-qQu" id="av2-dv-REY"/>
                         <outlet property="buttonRemoveSection" destination="Yyh-aW-R1c" id="9y7-T0-dqt"/>
+                        <outlet property="constraintViewBottomHeight" destination="cnW-6c-RPP" id="K8X-eo-Xb3"/>
                         <outlet property="table" destination="TYz-HS-QH3" id="29v-qc-ce6"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="163" y="-93"/>
+            <point key="canvasLocation" x="163" y="-92.999999999999986"/>
         </scene>
     </scenes>
 </document>
