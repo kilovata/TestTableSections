@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) NSMutableArray *arrayItems;
+@property (strong, nonatomic) NSMutableArray *arrayItemsInsert;
 @property (weak, nonatomic) IBOutlet UIButton *buttonAddSection;
 @property (weak, nonatomic) IBOutlet UIButton *buttonRemoveSection;
 @property (weak, nonatomic) IBOutlet UIButton *buttonChangeAnimation;
@@ -34,6 +35,13 @@
 	{
 		NSString *str = [NSString stringWithFormat:@"Section %i", i];
 		[self.arrayItems addObject:str];
+	}
+	
+	self.arrayItemsInsert = [NSMutableArray array];
+	for (int i=0; i<3; i++)
+	{
+		NSString *str = [NSString stringWithFormat:@"New Section %i", i];
+		[self.arrayItemsInsert addObject:str];
 	}
 }
 
@@ -62,19 +70,32 @@
 
 - (IBAction)removeSection:(id)sender
 {
-	if (self.arrayItems.count > 0)
+	if (self.arrayItems.count > self.arrayItemsInsert.count)
 	{
 		NSInteger index = 1;
-		if (self.arrayItems.count == 1)
-		{
-			index = 0;
-			self.buttonRemoveSection.enabled = NO;
-		}
 		[self.table beginUpdates];
-		[self.arrayItems removeObjectAtIndex:index];
-		NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:index];
+		NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(index, self.arrayItemsInsert.count)];
+		[self.arrayItems removeObjectsAtIndexes:indexSet];
 		[self.table deleteSections:indexSet withRowAnimation:self.typeAnimation];
 		[self.table endUpdates];
+	}
+	else
+	{
+		if (self.arrayItems.count > 0)
+		{
+			NSInteger index = 1;
+			if (self.arrayItems.count == 1)
+			{
+				index = 0;
+				self.buttonRemoveSection.enabled = NO;
+			}
+			
+			[self.table beginUpdates];
+			[self.arrayItems removeObjectAtIndex:index];
+			NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:index];
+			[self.table deleteSections:indexSet withRowAnimation:self.typeAnimation];
+			[self.table endUpdates];
+		}
 	}
 }
 
@@ -87,9 +108,8 @@
 	}
 	self.buttonRemoveSection.enabled = YES;
 	[self.table beginUpdates];
-	NSString *str = [NSString stringWithFormat:@"Section %lu", index];
-	[self.arrayItems addObject:str];
-	NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:index];
+	NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(index, self.arrayItemsInsert.count)];
+	[self.arrayItems insertObjects:self.arrayItemsInsert atIndexes:indexSet];
 	[self.table insertSections:indexSet withRowAnimation:self.typeAnimation];
 	[self.table endUpdates];
 }
